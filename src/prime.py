@@ -148,14 +148,13 @@ def main():
       start = time.clock()
       isPrime = p.testPrimeWithCache(num)
       end = time.clock()
-      if isPrime: print num, "is a prime number."
-      else: print num, "is not a prime number."
+      if isPrime: print num, "\nis a prime number."
+      else: print num, "\nis not a prime number."
       print "elapsed time: ", end-start
       print "\n"
 
     elif selection == 2:
       num = input("Enter a number: ")
-
       primes = []
       print "Running testPrimeWithCache"
       start = time.clock()
@@ -165,18 +164,29 @@ def main():
 
       end = time.clock()
       elapsed1 = end-start
-      print "\n"
-      print primes
-      print "\n"
+      print "Found ",len(primes), " primes."
+      primes = []
+      print "Running testPrime"
+      start = time.clock()
+      nums = range(2,num+1)
+      for i in nums:
+        if(p.testPrime(i)):primes += [i]
+
+      end = time.clock()
+      elapsed = end-start
+      print "Found ",len(primes), " primes."
+      primes = []
+      #print "\n"
+      #print primes
+      #print "\n"
       print("Running primeSieve")
       start = time.clock()
       primes = p.primeSieve(num)
       end = time.clock()
       elapsed2=end-start
-      print "\n"
-      print primes
-      print "\n"
+      print "Found ",len(primes), " primes."
       print "testPrimeWithCache elapsed time: ", elapsed1
+      print "testPrime elapsed time: ", elapsed
       print "primeSieve elapsed time: ", elapsed2
       
     elif selection ==3:

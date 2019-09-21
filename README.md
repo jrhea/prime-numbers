@@ -1,4 +1,4 @@
-#prime number generation#
+# prime number generation
 
 Here is a screencast of the prime.py in action:
 
